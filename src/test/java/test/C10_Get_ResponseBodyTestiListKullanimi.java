@@ -6,6 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class C10_Get_ResponseBodyTestiListKullanimi {
     /*
@@ -41,12 +42,9 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
                 .assertThat()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                .body("data.id", Matchers.hasSize(24),
-                        "data.employee_name",Matchers.hasItem("Ashton Cox"),
-                        "data.employee_age",Matchers.hasItems(61,40,30));
-
+                .body("data.id", hasSize(24),
+                        "data.employee_name",hasItem("Ashton Cox"),
+                        "data.employee_age",hasItems(61,40,30));
 
     }
-
-
 }
