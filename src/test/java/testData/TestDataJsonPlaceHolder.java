@@ -7,6 +7,8 @@ import java.util.HashMap;
 public class TestDataJsonPlaceHolder {
 
     public int basariliStatusCode = 200;
+    public String contentType = "application/json; charset=utf-8";
+    public String connectionHeaderDegeri = "keep-alive";
 
     public JSONObject expectedBodyOlusturJson(){
 
