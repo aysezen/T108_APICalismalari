@@ -73,7 +73,7 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseUrl {
                                 .body(reqBody.toString())
                                 .post("/{pp1}");
 
-        response.prettyPrint();
+        response.prettyPeek();
 
         // 4 - Assertion
 
@@ -85,7 +85,10 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseUrl {
         assertEquals( expBody.getJSONObject("booking").get("totalprice")  , resJP.get("booking.totalprice") );
         assertEquals( expBody.getJSONObject("booking").get("depositpaid")  , resJP.get("booking.depositpaid") );
         assertEquals( expBody.getJSONObject("booking").get("additionalneeds")  , resJP.get("booking.additionalneeds") );
-
+        assertEquals( expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkin")  ,
+                      resJP.get("booking.bookingdates.checkin") );
+        assertEquals( expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkout")  ,
+                      resJP.get("booking.bookingdates.checkout") );
 
     }
 
