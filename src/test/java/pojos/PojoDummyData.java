@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PojoDummyData {
+
     /*
     {
             "id":3,
@@ -17,6 +18,7 @@ public class PojoDummyData {
             "profile_image":""
             }
      */
+
     private int id;
     private String employee_name;
     private int employee_salary;
