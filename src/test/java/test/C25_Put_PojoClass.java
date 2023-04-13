@@ -2,11 +2,17 @@ package test;
 
 import baseURL.JsonPlaceHolderBaseURL;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
 import pojos.JsonPlaceHolderReqBodyPojo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class C25_Put_PojoClass extends JsonPlaceHolderBaseURL {
     /*
@@ -59,5 +65,16 @@ public class C25_Put_PojoClass extends JsonPlaceHolderBaseURL {
 
         response.prettyPrint();
 
+        // 4 - Assertion
+
+      //  JsonPath resJP = response.jsonPath();
+      //  Map<String, Object> resMap = response.as(HashMap.class);
+
+        JsonPlaceHolderReqBodyPojo resPojo = response.as(JsonPlaceHolderReqBodyPojo.class);
+
+        assertEquals( expBody.getTitle() , resPojo.getTitle() );
+        assertEquals( expBody.getBody()  , resPojo.getBody() );
+        assertEquals( expBody.getId()    , resPojo.getId() );
+        assertEquals( expBody.getUserId(), resPojo.getUserId() );
     }
 }
